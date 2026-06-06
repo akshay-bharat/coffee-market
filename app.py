@@ -79,10 +79,10 @@ with tab1:
                                                                      std_cpc = ('cpc','std'),
                                                                      stability = ('cpc',lambda x: x.std()/x.mean()),
                                                                      dirc = ('cpc',lambda x: list(x)[len(x)-1] - list(x)[0])).\
-      sort_values(by=['stability'],ascending = [False]).reset_index().loc[lambda x: x['cont'].isin(['united states','viet nam','philippines'])])
+      sort_values(by=['stability'],ascending = [False]).reset_index().loc[lambda x: x['cont'].isin(['united states','viet nam','philippines'])].rename(columns = {'cont':'country_name'}),hide_index=True)
       
       st.write(""" 
-      I have used stability of increase and direction of increase of consumption per capita to arrive at the three markets :
+      As it can be seen from the above table I have used stability of increase and direction of increase of consumption per capita to arrive at the three markets :
     
       1. United States: Demands entry due to having the strongest overall long-term expansion volume across the timeline (dirc of +4.530) combined with a high consumption baseline.
       2. Viet Nam: Represents an ideal high-growth emerging market, showing a massive positive trajectory shift of +2.785, proving an expanding local consumer appetite.
