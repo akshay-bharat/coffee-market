@@ -140,7 +140,7 @@ with tab3:
     
     st.write("Key Opportunities")
     st.write("""
-    * **Targeting Premium, High-Growth Entry Points:**Vietnam** and the **Philippines** are massive compounding growth markets. Entering these regions early allows ACME to establish strong brand equity while consumer adoption is surging.
+    * **Targeting Premium, High-Growth Entry Points:** **Vietnam** and the **Philippines** are massive compounding growth markets. Entering these regions early allows ACME to establish strong brand equity while consumer adoption is surging.
     * **Capitalizing on High Baseline Volumes:** Entering the **United States** gives ACME immediate access to a mature, high-volume market with a massive customer base that has consistently expanded its per-capita consumption baseline over the long term.
     * **Riding the Global Trajectory:** With **45 out of 93 countries showing positive expansion**, coffee is a globally resilient commodity. This broad-based interest gives ACME a highly diversified playground to expand into without relying on just one local economy.
     """)
