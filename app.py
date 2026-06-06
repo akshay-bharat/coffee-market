@@ -134,3 +134,21 @@ with tab2:
 
       ax.grid(True,linestyle = '--')
       st.pyplot(fig)
+
+with tab3:
+    st.subheader("💡 Strategic Risks & Opportunities for ACME Baristas")
+    
+    st.write("Key Opportunities")
+    st.write("""
+    * **Targeting Premium, High-Growth Entry Points:**Vietnam** and the **Philippines** are massive compounding growth markets. Entering these regions early allows ACME to establish strong brand equity while consumer adoption is surging.
+    * **Capitalizing on High Baseline Volumes:** Entering the **United States** gives ACME immediate access to a mature, high-volume market with a massive customer base that has consistently expanded its per-capita consumption baseline over the long term.
+    * **Riding the Global Trajectory:** With **45 out of 93 countries showing positive expansion**, coffee is a globally resilient commodity. This broad-based interest gives ACME a highly diversified playground to expand into without relying on just one local economy.
+    """)
+    
+    st.write("Key Risks")
+    st.write("""
+    * **Intense Competition in Mature Markets:** While the US has a massive consumption baseline, it is highly saturated with established specialty coffee giants. ACME must heavily differentiate its brand or offer unique customer loyalty experiences to win market share.
+    * **Supply Chain & Pricing Volatility:** Because coffee consumption has exploded globally, global production is under intense pressure. Agricultural risks, climate volatility, and shipping costs could fluctuate raw bean acquisition prices, threatening profit margins.
+    * **Navigating Local Preferences:** Transitioning into emerging markets requires altering menus to match local tastes (e.g., sweeter coffee formats or milk-based options popular in Southeast Asia vs. standard drip/espresso preferences in Western markets).
+    
+    """)
