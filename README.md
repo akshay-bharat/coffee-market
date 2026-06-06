@@ -26,13 +26,13 @@ Bash
 
 ### Step 1: Run the ETL Pipeline
 
-####1. Open your terminal and start Jupyter Notebook:
+#### 1. Open your terminal and start Jupyter Notebook:
 
 ```jupyter notebook```
 
-####2. Open pipeline.ipynb.
+#### 2. Open pipeline.ipynb.
 
-####3. Go to the top menu and click Cell -> Run All (or Kernel -> Restart & Run All).
+#### 3. Go to the top menu and click Cell -> Run All (or Kernel -> Restart & Run All).
 
 
 ### Step 2: Launch the Data Dashboard
