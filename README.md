@@ -30,7 +30,7 @@ Bash
 
 ```jupyter notebook```
 
-#### 2. Open pipeline.ipynb.
+#### 2. Open pipeline.py
 
 #### 3. Go to the top menu and click Cell -> Run All (or Kernel -> Restart & Run All).
 
