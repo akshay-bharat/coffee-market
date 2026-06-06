@@ -23,12 +23,12 @@ Bash
 ```pip install pandas sqlalchemy psycopg2-binary streamlit```
 
 ### How to Run the Project
-Step 1: Run the ETL Pipeline
+
+## Step 1: Run the ETL Pipeline
 
 Open your terminal and start Jupyter Notebook:
-Bash
 
-jupyter notebook
+```jupyter notebook```
 
 Open pipeline.ipynb.
 
@@ -36,12 +36,12 @@ Go to the top menu and click Cell -> Run All (or Kernel -> Restart & Run All).
 
 Note: The connection string inside the notebook uses the active hosted database credentials (postgresql://postgres:niumpostgressql@db.ucvmqgtfrgthvmitmokq.supabase.co:5432/postgres) to load the data seamlessly.
 
-Step 2: Launch the Data Dashboard
+## Step 2: Launch the Data Dashboard
 
 To launch the interactive Streamlit dashboard application, open a terminal window in your project directory and run:
 Bash
 
-streamlit run app.py
+```streamlit run app.py```
 
 
 ### Hosted Database Connection String
