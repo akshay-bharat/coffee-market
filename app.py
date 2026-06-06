@@ -103,10 +103,26 @@ with tab1:
       
       ax.set_xlabel('year')
       ax.set_ylabel('cpc')
-      ax.set_title('top 3 markets to increase client base')
+      ax.set_title('Timeline vs cpc - top 3 markets to increase client base')
       
       ax.grid(True,linestyle='--')
       ax.legend()
       
       st.pyplot(fig)
 
+with tab2:
+      st.subheader("Does the data suggest this is a good time to enter the coffee market?")
+      st.write("""Yes, it is a good time to enter coffee market, from the graph below we can see that almost 50% of the countries are showing a positive growth, and the yoy consumption per capita has been increasing""")
+
+      yearcpc=q.loc[q['population']>0].groupby('market_year').agg(consumption = ('consumption','sum'),
+                            population = ('population','sum')).assign(cpc = lambda x: (x['consumption']*60)/x['population']).reset_index()
+
+      fig,ax = plt.subplots(figsize=(10,5))
+      
+      ax.plot(yearcpc['market_year'],yearcpc['cpc'],color= 'green')
+      
+      ax.set_xlabel('year')
+      ax.set_ylabel('cpc')
+      ax.set_title('YoY consumption trend')
+      
+      st.pyplot(fig)
