@@ -1,3 +1,53 @@
+# Coffee Market Entry Pipeline & Dashboard
+
+This repository contains an end-to-end data engineering pipeline that extracts coffee market, population, and ISO data, cleans and aggregates it via Pandas, loads it into a hosted Supabase PostgreSQL database, and serves it through a Streamlit dashboard.
+
+---
+
+## Setup & Installation Instructions
+
+Follow these quick steps to set up the environment and run the project locally.
+
+### 1. Clone the Project
+Open your computer's terminal and clone the repository:
+```bash
+git clone https://github.com/akshay-bharat/coffee-market.git
+cd coffee-market
+```
+
+### 2. Install Required Python Packages
+
+Run the following command to install all necessary libraries for the pipeline and the dashboard:
+Bash
+
+pip install pandas sqlalchemy psycopg2-binary streamlit
+
+### How to Run the Project
+Step 1: Run the ETL Pipeline
+
+Open your terminal and start Jupyter Notebook:
+Bash
+
+jupyter notebook
+
+Open pipeline.ipynb.
+
+Go to the top menu and click Cell -> Run All (or Kernel -> Restart & Run All).
+
+Note: The connection string inside the notebook uses the active hosted database credentials (postgresql://postgres:niumpostgressql@db.ucvmqgtfrgthvmitmokq.supabase.co:5432/postgres) to load the data seamlessly.
+
+Step 2: Launch the Data Dashboard
+
+To launch the interactive Streamlit dashboard application, open a terminal window in your project directory and run:
+Bash
+
+streamlit run app.py
+
+
+### Hosted Database Connection String
+
+hosted connection string: postgresql://postgres:niumpostgressql@db.ucvmqgtfrgthvmitmokq.supabase.co:5432/postgres
+
 ## Project Reflections & Design Choices
 
 ### 1. Why did you choose this database schema layout?
