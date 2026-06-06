@@ -77,9 +77,9 @@ with tab1:
       st.write(""" 
       Based on our PostgreSQL data pipeline, we recommend targeting the following three markets:
     
-          1. **United States: Demands entry due to having the strongest overall long-term expansion volume across the timeline (dirc of +4.530) combined with a high consumption baseline.
-          2. **Viet Nam: Represents an ideal high-growth emerging market, showing a massive positive trajectory shift of +2.785, proving an expanding local consumer appetite.
-          3. **Philippines: Offers a robust, low-risk combination of high baseline volume (mean_cpc of 1.322) and steady compounding growth (dirc of +2.218).
+          1. United States: Demands entry due to having the strongest overall long-term expansion volume across the timeline (dirc of +4.530) combined with a high consumption baseline.
+          2. Viet Nam: Represents an ideal high-growth emerging market, showing a massive positive trajectory shift of +2.785, proving an expanding local consumer appetite.
+          3. Philippines: Offers a robust, low-risk combination of high baseline volume (mean_cpc of 1.322) and steady compounding growth (dirc of +2.218).
           
       """)
       
