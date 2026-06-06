@@ -136,7 +136,7 @@ with tab2:
       st.pyplot(fig)
 
 with tab3:
-    st.subheader("💡 Strategic Risks & Opportunities for ACME Baristas")
+    st.subheader("Strategic Risks & Opportunities for ACME Baristas")
     
     st.write("Key Opportunities")
     st.write("""
