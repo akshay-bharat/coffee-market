@@ -112,14 +112,13 @@ with tab1:
 
 with tab2:
       st.subheader("Does the data suggest this is a good time to enter the coffee market?")
-      st.write(""" Yes, the historical and macroeconomic data indicates that this is an optimal entry window for ACME Baristas.**
+      st.write(""" Yes, the historical and macroeconomic data indicates that this is an optimal entry window for ACME Baristas.
     
-    By analyzing our globally aggregated data pipeline, we look past raw consumption volume and evaluate **Per-Capita Consumption (CPC)**—measuring actual individual consumer appetite over time. 
+    By analyzing our past raw consumption volume and evaluate **Per-Capita Consumption (CPC)**—measuring actual individual consumer appetite over time. 
     
-    * **The Post-2002 Structural Breakout:** Our data captures a massive global trend change accelerating out of the early 2000s. Global CPC broke out from a stagnant baseline of ~0.56 kg/person in 2000 to a highly progressive upward trajectory.
+    * **Post-2002, our data captures a massive global trend change accelerating out of the early 2000s. Global CPC broke out from a stagnant baseline of ~0.56 kg/person in 2000 to a highly progressive upward trajectory.
     * **Widespread Systemic Momentum:** This macro expansion is incredibly healthy because it is highly diversified: **45 out of 93 tracked countries exhibit a positive long-term expansion direction ($dirc > 0$).**
     
-    **Strategic Conclusion:** Because individual consumer appetite is expanding globally rather than being consolidated in just one or two volatile regions, coffee demand is structurally sound and highly resilient, making right now an excellent time to scale a new premium coffee chain.""")
       yearcpc=q.loc[q['population']>0].groupby('market_year').agg(consumption = ('consumption','sum'),
                             population = ('population','sum')).assign(cpc = lambda x: (x['consumption']*60)/x['population']).reset_index()
 
