@@ -68,23 +68,30 @@ loc[lambda x: x['population'].notnull()], left_on = ['cont','market_year','iso3c
 assign(cpc = lambda x: x['consumption']*60/x['population'])
 
 
-plotdata = q.loc[q['cont'].isin(['united states','viet nam','philippines'])].\
-    pivot(index = 'market_year',columns = 'iso3code',values = 'cpc').rename_axis(None,axis=1).reset_index()
+st.title('Coffee Consumption Around the World')
 
-fig,ax = plt.subplots(figsize=(12,6))
+tab1,tab2,tab3 = st.tabs(['1. top 3 markets','2. market timing','3. risk and opportunity'])
 
-ax.plot(plotdata['market_year'],plotdata['USA'],label = 'USA',color = 'black')
-
-ax.plot(plotdata['market_year'],plotdata['PHL'],label = 'PHL',color = 'blue')
-
-ax.plot(plotdata['market_year'],plotdata['VNM'],label = 'VNM',color = 'pink')
-
-ax.set_xlabel('year')
-ax.set_ylabel('cpc')
-ax.set_title('top 3 markets to increase client base')
-
-ax.grid(True,linestyle='--')
-ax.legend()
-
-st.pyplot(fig)
+with tab1:
+      st.subheader("which 3 markets would you recommend")
+      
+      plotdata = q.loc[q['cont'].isin(['united states','viet nam','philippines'])].\
+          pivot(index = 'market_year',columns = 'iso3code',values = 'cpc').rename_axis(None,axis=1).reset_index()
+      
+      fig,ax = plt.subplots(figsize=(12,6))
+      
+      ax.plot(plotdata['market_year'],plotdata['USA'],label = 'USA',color = 'black')
+      
+      ax.plot(plotdata['market_year'],plotdata['PHL'],label = 'PHL',color = 'blue')
+      
+      ax.plot(plotdata['market_year'],plotdata['VNM'],label = 'VNM',color = 'pink')
+      
+      ax.set_xlabel('year')
+      ax.set_ylabel('cpc')
+      ax.set_title('top 3 markets to increase client base')
+      
+      ax.grid(True,linestyle='--')
+      ax.legend()
+      
+      st.pyplot(fig)
 
