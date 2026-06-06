@@ -117,7 +117,7 @@ with tab2:
     
     By analyzing our past raw consumption volume and evaluate **Per-Capita Consumption (CPC)**—measuring actual individual consumer appetite over time. 
     
-    * **Post-2002, our data captures a massive global trend change accelerating out of the early 2000s. Global CPC broke out from a stagnant baseline of ~0.56 kg/person in 2000 to a highly progressive upward trajectory.
+    * Post-2002, our data captures a massive global trend change accelerating out of the early 2000s. Global CPC broke out from a stagnant baseline of ~0.56 kg/person in 2000 to a highly progressive upward trajectory.
     * **Widespread Systemic Momentum:** This macro expansion is incredibly healthy because it is highly diversified: **45 out of 93 tracked countries exhibit a positive long-term expansion direction ($dirc > 0$).**
     """)
     
