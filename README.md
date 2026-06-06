@@ -38,7 +38,7 @@ Bash
 ### Step 2: Launch the Data Dashboard
 
 To launch the interactive Streamlit dashboard application, open a terminal window in your project directory and run:
-Bash
+
 
 ```streamlit run app.py```
 
