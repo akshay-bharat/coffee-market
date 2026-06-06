@@ -74,12 +74,19 @@ tab1,tab2,tab3 = st.tabs(['1. Top 3 Markets','2. Market Timing','3. Risk and Opp
 
 with tab1:
       st.subheader("Which 3 markets would you recommend")
+      
+      st.dataframe(q.loc[(q['cpc'].notnull()) & (q['consumption'] != 0)].groupby('cont').agg(mean_cpc = ('cpc','mean'),
+                                                                     std_cpc = ('cpc','std'),
+                                                                     stability = ('cpc',lambda x: x.std()/x.mean()),
+                                                                     dirc = ('cpc',lambda x: list(x)[len(x)-1] - list(x)[0])).\
+      sort_values(by=['stability'],ascending = [False]).reset_index().loc[lambda x: x['cont'].isin(['united states','viet nam','philippines'])])
+      
       st.write(""" 
-      Based on our PostgreSQL data pipeline, we recommend targeting the \n following three markets:
+      I have used stability of increase and direction of increase of consumption per capita to arrive at the three markets :
     
-          1. United States: Demands entry due to having the strongest overall long-term expansion volume across the timeline (dirc of +4.530) combined with a high consumption baseline.
-          2. Viet Nam: Represents an ideal high-growth emerging market, showing a massive positive trajectory shift of +2.785, proving an expanding local consumer appetite.
-          3. Philippines: Offers a robust, low-risk combination of high baseline volume (mean_cpc of 1.322) and steady compounding growth (dirc of +2.218).
+      1. United States: Demands entry due to having the strongest overall long-term expansion volume across the timeline (dirc of +4.530) combined with a high consumption baseline.
+      2. Viet Nam: Represents an ideal high-growth emerging market, showing a massive positive trajectory shift of +2.785, proving an expanding local consumer appetite.
+      3. Philippines: Offers a robust, low-risk combination of high baseline volume (mean_cpc of 1.322) and steady compounding growth (dirc of +2.218).
           
       """)
       
