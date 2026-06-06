@@ -3,9 +3,9 @@ import numpy as np
 import re
 from sqlalchemy import create_engine
 
-cofdf = pd.read_csv('/Users/akshay/Downloads/psd_coffee.csv')
-popdf= pd.read_csv('/Users/akshay/Downloads/pop.csv',skiprows = 4)
-codedf = pd.read_csv('/Users/akshay/Downloads/countries-codes.csv',sep=';')
+cofdf = pd.read_csv('psd_coffee.csv')
+popdf= pd.read_csv('pop.csv',skiprows = 4)
+codedf = pd.read_csv('countries-codes.csv',sep=';')
 
 
 cofdf.rename(columns = lambda x:x.lower()).assign(country_name =  lambda x: x['country_name'].str.strip().str.lower()).loc[:,['country_name']].drop_duplicates().\
