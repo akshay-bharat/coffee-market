@@ -1,5 +1,8 @@
 # Coffee Market Entry Pipeline & Dashboard
 
+**[Click Here to View the Live Streamlit Dashboard](https://coffee-market-drfqpjnjjt8qjpvbp6mg5z.streamlit.app/)**
+
+---
 This repository contains an end-to-end data engineering pipeline that extracts coffee market, population, and ISO data, cleans and aggregates it via Pandas, loads it into a hosted Supabase PostgreSQL database, and serves it through a Streamlit dashboard.
 
 ---
