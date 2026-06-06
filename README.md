@@ -20,7 +20,7 @@ cd coffee-market
 Run the following command to install all necessary libraries for the pipeline and the dashboard:
 Bash
 
-pip install pandas sqlalchemy psycopg2-binary streamlit
+```pip install pandas sqlalchemy psycopg2-binary streamlit```
 
 ### How to Run the Project
 Step 1: Run the ETL Pipeline
