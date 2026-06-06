@@ -15,28 +15,32 @@ cofdf.rename(columns = lambda x:x.lower()).assign(country_name =  lambda x: x['c
 merge(codedf.rename(columns = lambda x:x.lower()).assign(label_en =  lambda x: x['label en'].str.strip().str.lower()).loc[:,['label_en']].drop_duplicates(),left_on = 'country_name', right_on = 'label_en',how='left').\
 loc[lambda x:x['label_en'].isnull()]
 
-fix = {'congo (brazzaville)':'congo',
-      'congo (kinshasa)' : 'congo, democratic republic of the',
-      "cote d'ivoire" : "côte d'ivoire",
-      "iran": "iran, islamic rep. of",
-    "korea, south": "korea, republic of",
-    "laos": "lao people's dem. rep.",
-    "north macedonia": "macedonia, the former yugoslav rep. of",
-    "russia": "russian federation",
-    "taiwan": "taiwan, china",
-    "tanzania": "tanzania, united republic of",
-    "venezuela": "venezuela, bolivarian rep. of",
-    "vietnam": "viet nam",
-    "yemen (sanaa)": "yemen"}
+def load_and_clean_data():
+      fix = {'congo (brazzaville)':'congo',
+            'congo (kinshasa)' : 'congo, democratic republic of the',
+            "cote d'ivoire" : "côte d'ivoire",
+            "iran": "iran, islamic rep. of",
+          "korea, south": "korea, republic of",
+          "laos": "lao people's dem. rep.",
+          "north macedonia": "macedonia, the former yugoslav rep. of",
+          "russia": "russian federation",
+          "taiwan": "taiwan, china",
+          "tanzania": "tanzania, united republic of",
+          "venezuela": "venezuela, bolivarian rep. of",
+          "vietnam": "viet nam",
+          "yemen (sanaa)": "yemen"}
+      
+      #cofdf['cont'] = cofdf['Country_Name'].str.strip().str.lower().replace(fix)
+      
+      cleaned_df = (cofdf.rename(columns = lambda x:x.lower()).assign(cont = lambda x:x['country_name'].str.strip().str.lower().replace(fix))
+      .merge(codedf.rename(columns = lambda x:x.lower()).assign(label_en =  lambda x: x['label en'].str.strip().str.lower()).loc[:,['label_en','iso2 code','iso3 code']].drop_duplicates(subset = ['label_en']),left_on = 'cont', right_on = 'label_en',how='left')
+      .assign(label_en = lambda x: np.where(x['label_en'].isnull(),'european union',x['cont']),
+            iso2code = lambda x: np.where(x['iso2 code'].isnull(),'EU',x['iso2 code']),
+            iso3code = lambda x: np.where(x['iso3 code'].isnull(),'EUU',x['iso3 code'])))
 
-#cofdf['cont'] = cofdf['Country_Name'].str.strip().str.lower().replace(fix)
+      return cleaned_df
 
-cofdfnew = (cofdf.rename(columns = lambda x:x.lower()).assign(cont = lambda x:x['country_name'].str.strip().str.lower().replace(fix))
-.merge(codedf.rename(columns = lambda x:x.lower()).assign(label_en =  lambda x: x['label en'].str.strip().str.lower()).loc[:,['label_en','iso2 code','iso3 code']].drop_duplicates(subset = ['label_en']),left_on = 'cont', right_on = 'label_en',how='left')
-.assign(label_en = lambda x: np.where(x['label_en'].isnull(),'european union',x['cont']),
-      iso2code = lambda x: np.where(x['iso2 code'].isnull(),'EU',x['iso2 code']),
-      iso3code = lambda x: np.where(x['iso3 code'].isnull(),'EUU',x['iso3 code'])))
-
+cofdfnew = load_and_clean_data()
 
 def func(x):
     if x['country name']=='European Union':
