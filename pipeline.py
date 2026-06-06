@@ -60,30 +60,12 @@ loc[lambda x: x['population'].notnull()], left_on = ['cont','market_year','iso3c
 assign(cpc = lambda x: x['consumption']*60/x['population'])
 
 
-DATABASE_URL = "postgresql://postgres:[password]@db.ucvmqgtfrgthvmitmokq.supabase.co:5432/postgres"
+DATABASE_URL = "postgresql://postgres:niumpostgressql@db.ucvmqgtfrgthvmitmokq.supabase.co:5432/postgres"
 
 
 engine = create_engine(DATABASE_URL)
 
 
 q.to_sql('raw_coffee_market_data', engine, if_exists='replace', index=False)
-
-
-
-
-
-
-
-
-# In[12]:
-
-
-import os
-print(os.getcwd())
-
-
-# In[ ]:
-
-
 
 
