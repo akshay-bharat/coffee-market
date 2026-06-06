@@ -70,10 +70,18 @@ assign(cpc = lambda x: x['consumption']*60/x['population'])
 
 st.title('Coffee Consumption Around the World')
 
-tab1,tab2,tab3 = st.tabs(['1. top 3 markets','2. market timing','3. risk and opportunity'])
+tab1,tab2,tab3 = st.tabs(['1. Top 3 Markets','2. Market Timing','3. Risk and Opportunity'])
 
 with tab1:
-      st.subheader("which 3 markets would you recommend")
+      st.subheader("Which 3 markets would you recommend")
+      st.write(""" 
+      Based on our PostgreSQL data pipeline, we recommend targeting the following three markets:
+    
+          1. ** United States: Demands entry due to having the strongest overall long-term expansion volume across the timeline (dirc of +4.530) combined with a high consumption baseline.
+          2. ** Viet Nam: Represents an ideal high-growth emerging market, showing a massive positive trajectory shift of +2.785, proving an expanding local consumer appetite.
+          3. ** Philippines: Offers a robust, low-risk combination of high baseline volume (mean_cpc of 1.322) and steady compounding growth (dirc of +2.218).
+          
+      """)
       
       plotdata = q.loc[q['cont'].isin(['united states','viet nam','philippines'])].\
           pivot(index = 'market_year',columns = 'iso3code',values = 'cpc').rename_axis(None,axis=1).reset_index()
